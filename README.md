@@ -305,7 +305,7 @@ power management:
 ```
 9. Run the command **top** and type **q** to quit. 
 
- 
+  <img src="./images/top.png" width="70%">
 
 10. Run the command **uname -a**. 
 ```bash
