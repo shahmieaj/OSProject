@@ -415,8 +415,8 @@ __Our helloworld.txt is lost as the container was deleted__
 
 ***Questions:***
 
-1. Are files in the container persistent. Why not?. __No. Containers are designed to be lightweight and ephemeral, storing changes in a temporary writable layer that is discarded when the container stops.__
-2. Can we run two, or three instances of debian linux? . __Yes, multiple instances of Debian Linux can be run simultaneously on different virtual machines, containers, or physical machines.__
+1. Are files in the container persistent. Why not? __No. Containers are designed to be lightweight and ephemeral, storing changes in a temporary writable layer that is discarded when the container stops.__
+2. Can we run two, or three instances of debian linux? __Yes, multiple instances of Debian Linux can be run simultaneously on different virtual machines, containers, or physical machines.__
 
 ## Running your own container with persistent storage
 
@@ -432,17 +432,37 @@ At the terminal, create a new directory called **myroot**, and run a instance of
 
 @joeynor ➜ /workspaces/OSProject/myroot (main) $ docker run --detach -it -v /workspaces/OSProject/myroot:/root debian
 ```
+```bash
+@shahmieaj ➜ /workspaces/OSProject (main) $ mkdir myroot
+@shahmieaj ➜ /workspaces/OSProject (main) $ cd myroot/
+@shahmieaj ➜ /workspaces/OSProject/myroot (main) $ pwd
+/workspaces/OSProject/myroot
+
+@shahmieaj ➜ /workspaces/OSProject/myroot (main) $ docker run --detach -it -v /workspaces/OSProject/myroot:/root debian
+cb9f02626d68b6ce4a2b8af46c2d5b6dbf9f4eb6f26039a24358aa1c1a40eab5
+```
 
 ***Questions:***
 
-1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __Fill answer here__.
+1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** 
+```bash
+@shahmieaj ➜ /workspaces/OSProject/myroot (main) $ ls
+helloworld.txt
+
+@shahmieaj ➜ /workspaces/OSProject/myroot (main) $ ls -l
+total 4
+-rw-rw-rw- 1 root root 6 Jun 23 11:07 helloworld.txt
+```
 2. Can you change the permission of the files to user codespace.  You will need this to be able to commit and get points for this question. ***(2 mark)***
 ```bash
 //use sudo and chown
 sudo chown -R codespace:codespace myroot
 
 ```
-*** __Fill answer here__.***
+```bash
+@shahmieaj ➜ /workspaces/OSProject/myroot (main) $ sudo chown -R codespace:codespace /workspaces/OSProject/myroot
+@shahmieaj ➜ /workspaces/OSProject/myroot (main) $ 
+```
 
 ## You are on your own, create your own static webpage
 
