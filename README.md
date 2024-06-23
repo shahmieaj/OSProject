@@ -467,12 +467,24 @@ sudo chown -R codespace:codespace myroot
 ## You are on your own, create your own static webpage
 
 1. Create a directory called webpage in your host machine
+```bash
+@shahmieaj ➜ /workspaces/OSProject/myroot (main) $ mkdir ~/webpage
+
+@shahmieaj ➜ /workspaces/OSProject/myroot (main) $ cd ~/webpage
+```
 2. Inside the directory, create a page index.html, with any content you would like
+```bash
+@shahmieaj ➜ ~/webpage $ echo "<html><head><title>My Webpage</title></head><body><h1>Welcome to my webpage</h1><p>This is just a demonstration.</p></body></html>" > index.html
+```
 3. Then, run the apache webserver and mount the webpage directory to it. Hint:
 ```bash
 ## the -p 8080:80 flag points the host port 8080 to the container port 80
 
 docker run --detach -v /workspaces/OSProject/webpage:/usr/local/apache2/htdocs/ -p 8080:80 httpd
+```
+```bash
+@shahmieaj ➜ ~/webpage $ docker run --detach -v ~/webpage:/usr/local/apache2/htdocs/ -p 8000:80 httpd
+574f0e23c2fbb56ed1125af4b33f6329ebaf705259b00423b430a1430db58e59
 ```
 
 4. If it works, codespace will trigger a port assignment and provide a URL for you to access your webpage like the one below.
@@ -484,13 +496,29 @@ docker run --detach -v /workspaces/OSProject/webpage:/usr/local/apache2/htdocs/ 
 
 6. You can then access your website by adding an index.html towards the end of your url link, like the one below. 
 
- <img src="./images/helloworldweb.png" width="70%">
+ <img src="./images/website.png" width="70%">
 
 ***Questions:***
 
-1. What is the permission of folder /usr/local/apache/htdocs and what user and group owns the folder? . ***(2 mark)*** __Fill answer here__.
-2. What port is the apache web server running. ***(1 mark)*** __Fill answer here__.
-3. What port is open for http protocol on the host machine? ***(1 mark)*** __Fill answer here__.
+1. What is the permission of folder /usr/local/apache/htdocs and what user and group owns the folder? .
+```bash
+@shahmieaj ➜ ~/webpage $ ls -l
+total 4
+-rw-r--r-- 1 codespace codespace 131 Jun 23 11:30 index.html
+```
+
+2. What port is the apache web server running. __8000__.
+3. What port is open for http protocol on the host machine? 
+```bash
+@shahmieaj ➜ ~/webpage $ netstat -tuln | grep :800
+tcp        0      0 0.0.0.0:8000            0.0.0.0:*               LISTEN     
+tcp6       0      0 :::8000                 :::*                    LISTEN     
+@shahmieaj ➜ ~/webpage $ netstat -tuln | grep :80
+tcp        0      0 0.0.0.0:8000            0.0.0.0:*               LISTEN     
+tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN     
+tcp6       0      0 :::8000                 :::*                    LISTEN     
+tcp6       0      0 :::8080                 :::*                    LISTEN 
+```
 
 ## Create SUB Networks
 
