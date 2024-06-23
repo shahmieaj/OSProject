@@ -327,18 +327,35 @@ Linux codespaces-0d6d7a 6.5.0-1021-azure #22~22.04.1-Ubuntu SMP Tue Apr 30 16:08
 docker pull debian
 docker run --detach -it debian
 ```
+```bash
+@shahmieaj ➜ /workspaces/OSProject (main) $ docker pull debian
+Using default tag: latest
+latest: Pulling from library/debian
+fea1432adf09: Pull complete 
+Digest: sha256:a92ed51e0996d8e9de041ca05ce623d2c491444df6a535a566dabd5cb8336946
+Status: Downloaded newer image for debian:latest
+docker.io/library/debian:latest
+@shahmieaj ➜ /workspaces/OSProject (main) $ docker run --detach -it debian
+3081078d6b1fbcead33af57cbc19175c4273664dff7317d5cccdbeb439f57caf
+```
 2. This will run the debian container. To check if the debian container is running, type
 ```bash
 @joeynor ➜ /workspaces/OSProject (main) $ docker ps -a
 CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
 f65be1987f84   debian    "bash"    4 minutes ago   Up 4 minutes             romantic_jackson
 ```
-
+```bash
+@shahmieaj ➜ /workspaces/OSProject (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED              STATUS              PORTS     NAMES
+3081078d6b1f   debian    "bash"    About a minute ago   Up About a minute             adoring_cray
+```
 3. Keep note of the name used by your container, this is usually given random names unless you specify your own name. Now run a bash command on the container. Make sure you use the name of your container instead of the one shown here. 
 ```bash
 docker exec -i -t romantic_jackson /bin/bash
 ```
-
+```bash
+@shahmieaj ➜ /workspaces/OSProject (main) $ docker exec -i -t adoring_cray /bin/bash
+```
 4. Create a file on the container. First you must make sure you are in the bash command prompt of the container. The container is new, and does not have any software other than the debian OS. To create a new file, you will need an editor installed. In the bash shell of the container, run the package manager apt-get to install nano text editor. 
 
 ```bash
@@ -363,6 +380,15 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 
 @joeynor ➜ /workspaces/OSProject (main) $ docker restart romantic_jackson
 ```
+```bash
+@shahmieaj ➜ /workspaces/OSProject (main) $ docker stop adoring_cray
+
+@shahmieaj ➜ /workspaces/OSProject (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                        PORTS     NAMES
+3081078d6b1f   debian    "bash"    14 minutes ago   Exited (137) 19 seconds ago             adoring_cray
+
+@shahmieaj ➜ /workspaces/OSProject (main) $ docker restart adoring_cray
+```
 
 7. Stop the container and delete the container. What happened to your helloworld.txt?
 
@@ -375,11 +401,22 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 
 @joeynor ➜ /workspaces/OSProject (main) $ docker rm romantic_jackson
 ```
+```bash 
+@shahmieaj ➜ /workspaces/OSProject (main) $ docker stop adoring_cray
+
+@shahmieaj ➜ /workspaces/OSProject (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                        PORTS     NAMES
+3081078d6b1f   debian    "bash"    18 minutes ago   Exited (137) 11 seconds ago             adoring_cray
+
+@shahmieaj ➜ /workspaces/OSProject (main) $ docker rm adoring_cray
+```
+
+__Our helloworld.txt is lost as the container was deleted__
 
 ***Questions:***
 
-1. Are files in the container persistent. Why not?. ***(1 mark)*** __Fill answer here__.
-2. Can we run two, or three instances of debian linux? . ***(1 mark)*** __Fill answer here__.
+1. Are files in the container persistent. Why not?. __No. Containers are designed to be lightweight and ephemeral, storing changes in a temporary writable layer that is discarded when the container stops.__
+2. Can we run two, or three instances of debian linux? . __Yes, multiple instances of Debian Linux can be run simultaneously on different virtual machines, containers, or physical machines.__
 
 ## Running your own container with persistent storage
 
