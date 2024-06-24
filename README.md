@@ -25,9 +25,11 @@ Team Mates:
 ***Questions:***
 
 1. What is the link of the fork OSProject in your repository. 
+
 __https://github.com/shahmieaj/OSProject__.
 
 2. How many files and folders are in this repository. 
+
 __1 Readme.md file and 1 images folder__.
 
 ## Exploring github codespaces
@@ -60,12 +62,15 @@ __1 Readme.md file and 1 images folder__.
 ***Questions:***
 
 1. What is default OS used to run the virtual environment for codespaces. 
+
 __Linux Ubuntu__.
 
-2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . 
+2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces .
+
 __2 cores, 8 GB RAM, 32 GB storage and 4 cores, 16 GB RAM, 32 GB storage__.
 
 3. Why must we commit and sync our current work on source control? 
+
 __So that the work made will be save into the main repository__.
 
 ## Exploring the Terminal
@@ -320,24 +325,31 @@ power management:
 Linux codespaces-0d6d7a 6.5.0-1021-azure #22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 ```
 11. What is the available free memory in the system. 
+
 __226Mi__.
 
 12. What is the available disk space mounted on /workspace. 
+
 __20772408__.
 
 13. Name the version and hardware architecture of the linux Virtual environment. 
+
 __Linux codespaces-0d6d7a 6.5.0-1021-azure #22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux__.
 
 14. What is the difference between **ls** vs **ls -asl**. 
+
 __The ls command will list simple filenames while the ls -als command will list the detailed version__.
 
 15. What is the TLB size of the Virtual CPU. 
+
 __2560 4K pages__.
 
 16. What is the CPU speed of the Virtual CPU. 
+
 __3241.840 MHz__.
 
 17. What is the top running process that consumes the most CPU cycles. 
+
 __docker-init__.
 
 ## Running your own container instance.
@@ -436,8 +448,11 @@ __Our helloworld.txt is lost as the container was deleted__
 ***Questions:***
 
 1. Are files in the container persistent. Why not? 
+
 __No. Containers are designed to be lightweight and ephemeral, storing changes in a temporary writable layer that is discarded when the container stops.__
+
 2. Can we run two, or three instances of debian linux? 
+
 __Yes, multiple instances of Debian Linux can be run simultaneously on different virtual machines, containers, or physical machines.__
 
 ## Running your own container with persistent storage
@@ -543,9 +558,11 @@ total 4
 ```
 
 2. What port is the apache web server running.
+
  __8080__.
- 
+
 3. What port is open for http protocol on the host machine? 
+
 __80__
 
 ## Create SUB Networks
@@ -588,7 +605,10 @@ c77527b801dec968f261acc8b4638b0840e1c787dc7257afa952cc57f7326078
 
 ***Questions:***
 
-1. Describe what is busybox and what is command switch **--name** is for? . __Busybox is a software that combines tiny version of many common unix and --name command switch allows us to specify custom name for the container__.
+1. Describe what is busybox and what is command switch **--name** is for? . 
+
+__Busybox is a software that combines tiny version of many common unix and --name command switch allows us to specify custom name for the container__.
+
 2. Explore the network using the command ```docker network ls```, show the output of your terminal.
 ```bash
 @shahmieaj ➜ /workspaces/OSProject (main) $ docker network ls
@@ -600,9 +620,16 @@ NETWORK ID     NAME      DRIVER    SCOPE
 413f8b957704   rednet    bridge    local
 ```
 
-3. Using ```docker inspect c1``` and ```docker inspect c2``` inscpect the two network. What is the gateway of bluenet and rednet.? __Gateway for bluenet :172.18.0.1, Gateway for rednet :172.19.0.1__.
-4. What is the network address for the running container c1 and c2? __c1 Network Address :172.18.0.0, c2 Network Address :172.19.0.0__.
+3. Using ```docker inspect c1``` and ```docker inspect c2``` inscpect the two network. What is the gateway of bluenet and rednet.?
+
+ __Gateway for bluenet :172.18.0.1, Gateway for rednet :172.19.0.1__.
+
+4. What is the network address for the running container c1 and c2? 
+
+__c1 Network Address :172.18.0.0, c2 Network Address :172.19.0.0__.
+
 5. Using the command ```docker exec c1 ping c2```, which basically tries to do a ping from container c1 to c2. Are you able to ping? Show your output . 
+
 __We are unable to ping__
 ```bash
 @shahmieaj ➜ /workspaces/OSProject (main) $ docker exec c1 ping c2
@@ -629,8 +656,27 @@ docker exec c1 ping c2
 
 ***Questions:***
 
-1. Are you able to ping? Show your output . ***(1 mark)*** __Fill answer here__.
-2. What is different from the previous ping in the section above? ***(1 mark)*** __Fill answer here__.
+1. Are you able to ping? Show your output .  
+__Yes__.
+
+<img src="./images/ping.png" width="30%">
+
+```bash
+@shahmieaj ➜ /workspaces/OSProject (main) $ docker exec c1 ping -c 4 c2
+PING c2 (172.20.0.3): 56 data bytes
+64 bytes from 172.20.0.3: seq=0 ttl=64 time=0.123 ms
+64 bytes from 172.20.0.3: seq=1 ttl=64 time=0.110 ms
+64 bytes from 172.20.0.3: seq=2 ttl=64 time=0.073 ms
+64 bytes from 172.20.0.3: seq=3 ttl=64 time=0.089 ms
+
+--- c2 ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max = 0.073/0.098/0.123 ms
+```
+
+2. What is different from the previous ping in the section above?  
+
+__The difference between the previous ping is that this ping successful because both of the containers have been connected to the 'bridgenet' network where they have been connected to the same network__.
 
 ## Intermediate Level (10 marks bonus)
 
