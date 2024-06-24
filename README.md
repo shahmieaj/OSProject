@@ -24,9 +24,11 @@ Team Mates:
 
 ***Questions:***
 
-1. What is the link of the fork OSProject in your repository. __https://github.com/shahmieaj/OSProject__.
-2. How many files and folders are in this repository. __1 Readme.md file and 1 images folder__.
+1. What is the link of the fork OSProject in your repository. 
+__https://github.com/shahmieaj/OSProject__.
 
+2. How many files and folders are in this repository. 
+__1 Readme.md file and 1 images folder__.
 
 ## Exploring github codespaces
 
@@ -57,9 +59,14 @@ Team Mates:
 
 ***Questions:***
 
-1. What is default OS used to run the virtual environment for codespaces. __Linux Ubuntu__.
-2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . __2 cores, 8 GB RAM, 32 GB storage and 4 cores, 16 GB RAM, 32 GB storage__.
-3. Why must we commit and sync our current work on source control? __So that the work made will be save into the main repository__.
+1. What is default OS used to run the virtual environment for codespaces. 
+__Linux Ubuntu__.
+
+2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . 
+__2 cores, 8 GB RAM, 32 GB storage and 4 cores, 16 GB RAM, 32 GB storage__.
+
+3. Why must we commit and sync our current work on source control? 
+__So that the work made will be save into the main repository__.
 
 ## Exploring the Terminal
 
@@ -312,13 +319,26 @@ power management:
 @shahmieaj ➜ /workspaces/OSProject (main) $ uname -a 
 Linux codespaces-0d6d7a 6.5.0-1021-azure #22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 ```
-11. What is the available free memory in the system. __226Mi__.
-12. What is the available disk space mounted on /workspace. __20772408__.
-13. Name the version and hardware architecture of the linux Virtual environment. __Linux codespaces-0d6d7a 6.5.0-1021-azure #22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux__.
-14. What is the difference between **ls** vs **ls -asl**. __The ls command will list simple filenames while the ls -als command will list the detailed version__.
-15. What is the TLB size of the Virtual CPU. __2560 4K pages__.
-16. What is the CPU speed of the Virtual CPU. __3241.840 MHz__.
-17. What is the top running process that consumes the most CPU cycles. __docker-init__.
+11. What is the available free memory in the system. 
+__226Mi__.
+
+12. What is the available disk space mounted on /workspace. 
+__20772408__.
+
+13. Name the version and hardware architecture of the linux Virtual environment. 
+__Linux codespaces-0d6d7a 6.5.0-1021-azure #22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux__.
+
+14. What is the difference between **ls** vs **ls -asl**. 
+__The ls command will list simple filenames while the ls -als command will list the detailed version__.
+
+15. What is the TLB size of the Virtual CPU. 
+__2560 4K pages__.
+
+16. What is the CPU speed of the Virtual CPU. 
+__3241.840 MHz__.
+
+17. What is the top running process that consumes the most CPU cycles. 
+__docker-init__.
 
 ## Running your own container instance.
 
@@ -415,8 +435,10 @@ __Our helloworld.txt is lost as the container was deleted__
 
 ***Questions:***
 
-1. Are files in the container persistent. Why not? __No. Containers are designed to be lightweight and ephemeral, storing changes in a temporary writable layer that is discarded when the container stops.__
-2. Can we run two, or three instances of debian linux? __Yes, multiple instances of Debian Linux can be run simultaneously on different virtual machines, containers, or physical machines.__
+1. Are files in the container persistent. Why not? 
+__No. Containers are designed to be lightweight and ephemeral, storing changes in a temporary writable layer that is discarded when the container stops.__
+2. Can we run two, or three instances of debian linux? 
+__Yes, multiple instances of Debian Linux can be run simultaneously on different virtual machines, containers, or physical machines.__
 
 ## Running your own container with persistent storage
 
@@ -461,20 +483,23 @@ sudo chown -R codespace:codespace myroot
 ```
 ```bash
 @shahmieaj ➜ /workspaces/OSProject/myroot (main) $ sudo chown -R codespace:codespace /workspaces/OSProject/myroot
-@shahmieaj ➜ /workspaces/OSProject/myroot (main) $ 
+
+@shahmieaj ➜ /workspaces/OSProject/myroot (main) $ ls -l
+total 4
+-rw-rw-rw- 1 codespace codespace 6 Jun 24 09:51 helloworld.txt
 ```
 
 ## You are on your own, create your own static webpage
 
 1. Create a directory called webpage in your host machine
 ```bash
-@shahmieaj ➜ /workspaces/OSProject/myroot (main) $ mkdir ~/webpage
+@shahmieaj ➜ /workspaces/OSProject/myroot (main) $ mkdir webpage
 
-@shahmieaj ➜ /workspaces/OSProject/myroot (main) $ cd ~/webpage
+@shahmieaj ➜ /workspaces/OSProject/myroot (main) $ cd webpage/
 ```
 2. Inside the directory, create a page index.html, with any content you would like
 ```bash
-@shahmieaj ➜ ~/webpage $ echo "<html><head><title>My Webpage</title></head><body><h1>Welcome to my webpage</h1><p>This is just a demonstration.</p></body></html>" > index.html
+@shahmieaj ➜ /workspaces/OSProject/webpage $ echo "<html><head><title>My Webpage</title></head><body><h1>Welcome to my webpage</h1><p>This is just a demonstration.</p></body></html>" > index.html
 ```
 3. Then, run the apache webserver and mount the webpage directory to it. Hint:
 ```bash
@@ -483,8 +508,18 @@ sudo chown -R codespace:codespace myroot
 docker run --detach -v /workspaces/OSProject/webpage:/usr/local/apache2/htdocs/ -p 8080:80 httpd
 ```
 ```bash
-@shahmieaj ➜ ~/webpage $ docker run --detach -v ~/webpage:/usr/local/apache2/htdocs/ -p 8000:80 httpd
-574f0e23c2fbb56ed1125af4b33f6329ebaf705259b00423b430a1430db58e59
+@shahmieaj ➜ /workspaces/OSProject/webpage (main) $ docker run --detach -v /workspaces/OSProject/webpage:/usr/local/apache2/htdocs/ -p 8080:80 httpd
+Unable to find image 'httpd:latest' locally
+latest: Pulling from library/httpd
+2cc3ae149d28: Pull complete 
+840d8df643b2: Pull complete 
+4f4fb700ef54: Pull complete 
+9d1465828338: Pull complete 
+4a16a983b278: Pull complete 
+9129890c4c50: Pull complete 
+Digest: sha256:10182d88d7fbc5161ae0f6f758cba7adc56d4aae2dc950e51d72c0cf68967cea
+Status: Downloaded newer image for httpd:latest
+a5658e2bba9a7a141907bf8a83f264ff8e6a249b02a1a73e8c7c61070815182a
 ```
 
 4. If it works, codespace will trigger a port assignment and provide a URL for you to access your webpage like the one below.
@@ -502,23 +537,16 @@ docker run --detach -v /workspaces/OSProject/webpage:/usr/local/apache2/htdocs/ 
 
 1. What is the permission of folder /usr/local/apache/htdocs and what user and group owns the folder? .
 ```bash
-@shahmieaj ➜ ~/webpage $ ls -l
+@shahmieaj ➜ /workspaces/OSProject/webpage (main) $ ls -l
 total 4
--rw-r--r-- 1 codespace codespace 131 Jun 23 11:30 index.html
+-rw-rw-rw- 1 codespace codespace 131 Jun 24 09:59 index.html
 ```
 
-2. What port is the apache web server running. __8000__.
+2. What port is the apache web server running.
+ __8080__.
+ 
 3. What port is open for http protocol on the host machine? 
-```bash
-@shahmieaj ➜ ~/webpage $ netstat -tuln | grep :800
-tcp        0      0 0.0.0.0:8000            0.0.0.0:*               LISTEN     
-tcp6       0      0 :::8000                 :::*                    LISTEN     
-@shahmieaj ➜ ~/webpage $ netstat -tuln | grep :80
-tcp        0      0 0.0.0.0:8000            0.0.0.0:*               LISTEN     
-tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN     
-tcp6       0      0 :::8000                 :::*                    LISTEN     
-tcp6       0      0 :::8080                 :::*                    LISTEN 
-```
+__80__
 
 ## Create SUB Networks
 
