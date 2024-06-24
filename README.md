@@ -734,6 +734,8 @@ Status: Downloaded newer image for mysql:latest
     npm install express mysql
     ```
 
+<img src="./images/nodejs-app.png" width="50%">
+
 2. **Create a file named `index.js` with the following content:**
 
     ```js
