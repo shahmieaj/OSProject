@@ -689,12 +689,38 @@ This guide will help you set up a simple Node.js website that retrieves a random
 Create a Docker network to for the two containers.
 For mysql, call it **mysqlnet** for nodejs call it **nodejsnet** .
 
+```bash
+@shahmieaj ➜ /workspaces/OSProject (main) $ docker network create mysqlnet
+1abaa46d3ce396049e93473b211f420303776151633ae9f46f2b4c045c3519b4
+
+@shahmieaj ➜ /workspaces/OSProject (main) $ docker network create nodejsnet
+a8f3992c2daa9f4b76da8ab9ad0295ef17b3b1db8c07ea093798f3d38a411d64
+```
+
 #### Step 2: Set Up the MySQL Container
 
 Run a MySQL container on the created network.
 
 ```sh
 docker run --name mysql-container --network mysqlnet -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=mydatabase -e MYSQL_USER=myuser -e MYSQL_PASSWORD=mypassword -d mysql:latest
+```
+```bash
+@shahmieaj ➜ /workspaces/OSProject (main) $ docker run --name mysql-container --network mysqlnet -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=mydatabase -e MYSQL_USER=myuser -e MYSQL_PASSWORD=mypassword -d mysql:latest
+Unable to find image 'mysql:latest' locally
+latest: Pulling from library/mysql
+7af76bb36546: Pull complete 
+24d40f69285f: Pull complete 
+94e5412f594e: Pull complete 
+e00a64de64e9: Pull complete 
+e3dd3d47ce6c: Pull complete 
+18af3efb629d: Pull complete 
+ba3db9dfd86e: Pull complete 
+787130cbc394: Pull complete 
+d458a2361496: Pull complete 
+d48f1878172c: Pull complete 
+Digest: sha256:dab7049abafe3a0e12cbe5e49050cf149881c0cd9665c289e5808b9dad39c9e0
+Status: Downloaded newer image for mysql:latest
+66fcdd7b685c960aef4e858ffb068365e1dcfe27387d0668d108b37a5f72743d
 ```
 
 #### Step 3: Set Up the Node.js Container
