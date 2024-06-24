@@ -659,7 +659,7 @@ docker exec c1 ping c2
 1. Are you able to ping? Show your output .  
 __Yes__.
 
-<img src="./images/ping.png" width="30%">
+<img src="./images/ping.png" width="50%">
 
 ```bash
 @shahmieaj ➜ /workspaces/OSProject (main) $ docker exec c1 ping -c 4 c2
