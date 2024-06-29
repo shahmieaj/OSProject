@@ -9,19 +9,6 @@ Team Mates:
 2. __Ahmad Zaed Hakimi bin Rosli Allani__ and __2217059__
 3. __Shahmie bin Abd Jalil__ and __2217739__
 
-## Rules
-1. You are allowed to have **3 group** members. *Exception* is allowed **IFF (if and only if)** you are allowed to have 4 group members if you are a **multinational** or a **multigender** group. 
-2. When you complete the project, make sure to submit the repository link of your cloned project. Make sure all the files are as what you aspect in your repository. 
-3. Answer all questions in the **README.md**, in your own repository. Either use the online VSCode, terminal or github to edit. Answers are expected where you see __Fill answer here__.
-4. Learn how to use markdown. https://www.w3schools.io/file/markdown-introduction/
-
-## Forking this OS project repository
-1. First thing you need in doing this project is to have a github account. Make sure to sign up at https://www.github.com
-2. The second thing you need is to fork the OS project repository in your own github account. 
-
-    1. Go to https://github.com/joeynor/OSProject and click fork to copy the project into your own repository
-    2. Make sure that the new fork is now in your own repository
-
 ***Questions:***
 
 1. What is the link of the fork OSProject in your repository. 
@@ -33,31 +20,6 @@ __https://github.com/shahmieaj/OSProject__.
 __1 Readme.md file and 1 images folder__.
 
 ## Exploring github codespaces
-
-1. The next thing that we will be doing is exploring codespaces. First of all, read about codespaces https://docs.github.com/en/codespaces/overview#what-is-a-codespace
-2. Then go to the link https://github.com/codespaces and we shall start a new codespace.  
-3. Click on ***New codespace***.
-4. Choose your own OSProject repository to start your codespace.
-
- <img src="./images/newcodespace.png" width="50%">
-
-5. Once you have created you codespace, you will see the following. You might already be familiar with this, since it will look similar to VSCode. 
-
- <img src="./images/UIwebvscode.png" width="70%">
-
-6. You will see the [README file](./README.md) file. One is a preview of how it looks like on the web, and the other is the editing view in markdown language. 
-7. Edit the [README file](./README.md). Make sure you have your group details correct, ie, group name, section and team members along with their matric IDs. 
-8. Once you have finish editing, click File->Save or ***ctrl-s*** to save it. 
-9. After saving, you will notice an M or U next to your file. You will need to commit any changes, whenever you make changes so that it is uploaded to the github repository. 
-
- <img src="./images/SourceControlUI.png" width="70%">
-
-10. Click on the source control, hint: its on the left side panel, and it will list down the files that have been modified or updated. Click on commit. It will then ask you "Would you like to stage all your changes and commit them directly?" Just say yes, and a new tab will appear. Type a message to log what you have done, and click on the check mark. 
-
- <img src="./images/CommittingUI.png" width="70%">
-
-11. After that, sync the changes to the main repository. 
-12. Make sure to commit and sync your files to the main repository, or else, your work will be lost since it is not saved into the main repository when you submit your project.
 
 ***Questions:***
 
@@ -76,13 +38,6 @@ __So that the work made will be save into the main repository__.
 ## Exploring the Terminal
 
 1. Look at the TERMINAL tab. Explore and run commands according to the questions below. 
-2. You can include your answers as images, or cut and paste the output here. If you are cutting and pasting your answers, wrap your answers in the codeblock clause in markdown. For example, if i run the command **whoami** the the output would look like the one below.
-```bash
-@joeynor ➜ /workspaces/OSProject (main) $ whoami 
-codespace
-```
-
-
 
 ***Questions:***
 
@@ -355,10 +310,6 @@ __docker-init__.
 ## Running your own container instance.
 
 1. At the terminal, run a linux instance. By typing the following command. 
-```
-docker pull debian
-docker run --detach -it debian
-```
 ```bash
 @shahmieaj ➜ /workspaces/OSProject (main) $ docker pull debian
 Using default tag: latest
@@ -372,19 +323,11 @@ docker.io/library/debian:latest
 ```
 2. This will run the debian container. To check if the debian container is running, type
 ```bash
-@joeynor ➜ /workspaces/OSProject (main) $ docker ps -a
-CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
-f65be1987f84   debian    "bash"    4 minutes ago   Up 4 minutes             romantic_jackson
-```
-```bash
 @shahmieaj ➜ /workspaces/OSProject (main) $ docker ps -a
 CONTAINER ID   IMAGE     COMMAND   CREATED              STATUS              PORTS     NAMES
 3081078d6b1f   debian    "bash"    About a minute ago   Up About a minute             adoring_cray
 ```
 3. Keep note of the name used by your container, this is usually given random names unless you specify your own name. Now run a bash command on the container. Make sure you use the name of your container instead of the one shown here. 
-```bash
-docker exec -i -t romantic_jackson /bin/bash
-```
 ```bash
 @shahmieaj ➜ /workspaces/OSProject (main) $ docker exec -i -t adoring_cray /bin/bash
 ```
@@ -403,15 +346,6 @@ root@f65be1987f84:~# nano helloworld.txt
 5. Edit your helloworld.txt, create your messsage and save by typing ctrl-X. Once saved, explore using the container to see where the file is located. Then exit the shell, by typing **exit**.
 
 6. Stop the container and run **docker ps -a**, and restart the container again. Is your file in the container still available?
-```bash 
-@joeynor ➜ /workspaces/OSProject (main) $ docker stop romantic_jackson
-
-@joeynor ➜ /workspaces/OSProject (main) $ docker ps -a
-CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                        PORTS     NAMES
-f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago             romantic_jackson
-
-@joeynor ➜ /workspaces/OSProject (main) $ docker restart romantic_jackson
-```
 ```bash
 @shahmieaj ➜ /workspaces/OSProject (main) $ docker stop adoring_cray
 
@@ -421,18 +355,7 @@ CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                      
 
 @shahmieaj ➜ /workspaces/OSProject (main) $ docker restart adoring_cray
 ```
-
 7. Stop the container and delete the container. What happened to your helloworld.txt?
-
-```bash 
-@joeynor ➜ /workspaces/OSProject (main) $ docker stop romantic_jackson
-
-@joeynor ➜ /workspaces/OSProject (main) $ docker ps -a
-CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                        PORTS     NAMES
-f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago             romantic_jackson
-
-@joeynor ➜ /workspaces/OSProject (main) $ docker rm romantic_jackson
-```
 ```bash 
 @shahmieaj ➜ /workspaces/OSProject (main) $ docker stop adoring_cray
 
@@ -442,7 +365,6 @@ CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                      
 
 @shahmieaj ➜ /workspaces/OSProject (main) $ docker rm adoring_cray
 ```
-
 __Our helloworld.txt is lost as the container was deleted__
 
 ***Questions:***
@@ -460,15 +382,6 @@ __Yes, multiple instances of Debian Linux can be run simultaneously on different
 1. In the previous experiment, you might have notice that containers are not persistent. To make storage persistent, you will need to mount them. 
 At the terminal, create a new directory called **myroot**, and run a instance of debian linux and mount myroot to the container. Find out the exact path of my root, and mount it as the root folder in the debian container. 
 2. Create a file in /root on the container, the files should also appear in myroot of your host VM.
-
-```bash 
-@joeynor ➜ /workspaces/OSProject (main) $ mkdir myroot
-@joeynor ➜ /workspaces/OSProject (main) $ cd myroot/
-@joeynor ➜ /workspaces/OSProject/myroot (main) $ pwd
-/workspaces/OSProject/myroot
-
-@joeynor ➜ /workspaces/OSProject/myroot (main) $ docker run --detach -it -v /workspaces/OSProject/myroot:/root debian
-```
 ```bash
 @shahmieaj ➜ /workspaces/OSProject (main) $ mkdir myroot
 @shahmieaj ➜ /workspaces/OSProject (main) $ cd myroot/
@@ -491,11 +404,6 @@ total 4
 -rw-rw-rw- 1 root root 6 Jun 23 11:07 helloworld.txt
 ```
 2. Can you change the permission of the files to user codespace.  You will need this to be able to commit and get points for this question. ***(2 mark)***
-```bash
-//use sudo and chown
-sudo chown -R codespace:codespace myroot
-
-```
 ```bash
 @shahmieaj ➜ /workspaces/OSProject/myroot (main) $ sudo chown -R codespace:codespace /workspaces/OSProject/myroot
 
@@ -537,10 +445,7 @@ Status: Downloaded newer image for httpd:latest
 a5658e2bba9a7a141907bf8a83f264ff8e6a249b02a1a73e8c7c61070815182a
 ```
 
-4. If it works, codespace will trigger a port assignment and provide a URL for you to access your webpage like the one below.
-
- <img src="./images/websitelink.png" width="70%">
-
+4. If it works, codespace will trigger a port assignment and provide a URL for you to access your webpage.
 
 5. You can also see the Port in the **PORTS** tab, next to the terminal tab.
 
@@ -569,18 +474,6 @@ __80__
 
 1. In docker, you can create your own private networks where you can run multiple services, in this part, we will create two networks, one called bluenet and the other is rednet
 2. Run the docker create network to create you networks like the ones below
-```bash
-## STEP 1:
-## Create Networks ##
-docker network create bluenet
-docker network create rednet`
-
-## STEP 2: (automatically running)
-## Create (1) Container in background called "c1" running busybox image ##
-docker run -itd --net bluenet --name c1 busybox sh
-docker run -itd --net rednet --name c2 busybox sh
-```
-
 ```bash
 ## CREATING NETWORK ##
 @shahmieaj ➜ /workspaces/OSProject (main) $ docker network create bluenet
@@ -700,10 +593,6 @@ a8f3992c2daa9f4b76da8ab9ad0295ef17b3b1db8c07ea093798f3d38a411d64
 #### Step 2: Set Up the MySQL Container
 
 Run a MySQL container on the created network.
-
-```sh
-docker run --name mysql-container --network mysqlnet -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=mydatabase -e MYSQL_USER=myuser -e MYSQL_PASSWORD=mypassword -d mysql:latest
-```
 ```bash
 @shahmieaj ➜ /workspaces/OSProject (main) $ docker run --name mysql-container --network mysqlnet -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=mydatabase -e MYSQL_USER=myuser -e MYSQL_PASSWORD=mypassword -d mysql:latest
 Unable to find image 'mysql:latest' locally
@@ -727,103 +616,21 @@ Status: Downloaded newer image for mysql:latest
 
 1. **Create a directory for your Node.js application and initialize it.**
 
-    ```sh
-    mkdir nodejs-app
-    cd nodejs-app
-    npm init -y
-    npm install express mysql
-    ```
-
 <img src="./images/nodejs-app.png" width="50%">
 
 2. **Create a file named `index.js` with the following content:**
 
-    ```js
-    const express = require('express');
-    const mysql = require('mysql');
-
-    const app = express();
-    const port = 3000;
-
-    // Create a MySQL connection
-    const connection = mysql.createConnection({
-      host: 'mysql-container',
-      user: 'myuser',
-      password: 'mypassword',
-      database: 'mydatabase'
-    });
-
-    // Connect to MySQL
-    connection.connect((err) => {
-      if (err) {
-        console.error('Error connecting to MySQL:', err);
-        return;
-      }
-      console.log('Connected to MySQL');
-    });
-
-    // Define a route to get a random row
-    app.get('/random', (req, res) => {
-      const query = 'SELECT * FROM mytable ORDER BY RAND() LIMIT 1';
-      connection.query(query, (err, results) => {
-        if (err) {
-          console.error('Error executing query:', err);
-          res.status(500).send('Server Error');
-          return;
-        }
-        res.json(results[0]);
-      });
-    });
-
-    // Start the server
-    app.listen(port, () => {
-      console.log(`Server running at http://localhost:${port}`);
-    });
-    ```
-
 3. **Create a Dockerfile for the Node.js application:**
-
-    ```Dockerfile
-    # Use the official Node.js image
-    FROM node:14
-
-    # Create and change to the app directory
-    WORKDIR /usr/src/app
-
-    # Copy application dependency manifests to the container image
-    COPY package*.json ./
-
-    # Install production dependencies
-    RUN npm install
-
-    # Copy local code to the container image
-    COPY . .
-
-    # Run the web service on container startup
-    CMD [ "node", "index.js" ]
-    ```
 
 #### Step 4: Build and Run the Node.js Container
 
 1. **Build the Docker image for the Node.js application.**
 
-    ```sh
-    docker build -t nodejs-app .
-    ```
-
 2. **Run the Node.js container on the same network as the MySQL container.**
-
-    ```sh
-    docker run --name nodejs-container --network nodejsnet -p 3000:3000 -d nodejs-app
-    ```
 
 #### Step 5: Test the Setup
 
 You can now test the setup by accessing the Node.js application in your browser or using a tool like `curl`:
-
-```sh
-curl http://localhost:3000/random
-```
 
 #### Step 6: Ensure `mytable` is Populated
 
@@ -831,15 +638,9 @@ Make sure you have created the `mytable` table and populated it with some data i
 
 You can use the following SQL commands to create and populate the table (run these commands in the MySQL container):
 
-```sql
-CREATE TABLE mytable (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  value VARCHAR(255) NOT NULL
-);
+<img src="./images/create.png" width="50%">
 
-INSERT INTO mytable (name, value) VALUES ('example1', 'value1'), ('example2', 'value2'), ('example3', 'value3');
-```
+<img src="./images/insert.png" width="50%">
 
 ### Summary
 
@@ -847,10 +648,32 @@ You have now set up a Node.js application in a Docker container on nodejsnet net
 
 ***Questions:***
 
-1. What is the output of step 5 above, explain the error? ***(1 mark)*** __Fill answer here__.
-2. Show the instruction needed to make this work. ***(1 mark)*** __Fill answer here__.
+1. What is the output of step 5 above, explain the error? 
 
+<img src="./images/curl.png" width="50%">
 
+__The output would likely be an error showing that the Node.js application can't connect to the MySQL database. This happens because the Node.js and MySQL containers are on different networks and can't communicate until they are connected.__.
+
+2. Show the instruction needed to make this work. 
+```bash
+#1#
+docker rm -f mysql-container
+
+#2#
+docker rm -f nodejs-container
+
+#3#
+docker network create my_network
+
+#4#
+docker run --name mysql-container --network my_network -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=mydatabase -e MYSQL_USER=myuser -e MYSQL_PASSWORD=mypassword -d mysql:latest
+
+#5#
+docker run --name nodejs-container --network my_network -p 3000:3000 -d nodejs-app
+
+```
+
+__This step will create a bridge between the two networks allowing them to connect with each other.__
 
 ## What to submit
 
